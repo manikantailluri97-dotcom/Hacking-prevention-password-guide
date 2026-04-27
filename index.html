@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberShield — Hacking & Prevention Guide</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Orbitron for headings, Share Tech Mono for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">⬡</span>
+      <span>Cyber<span class="accent">Shield</span></span>
+    </div>
+    <!-- Hamburger for mobile -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"     class="nav-link active" data-section="home">Home</a></li>
+      <li><a href="#checker"  class="nav-link" data-section="checker">Password Checker</a></li>
+      <li><a href="#login"    class="nav-link" data-section="login">Login</a></li>
+      <li><a href="#quiz"     class="nav-link" data-section="quiz">Quiz</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== SECTION: HOME ===================== -->
+  <section id="home" class="section active">
+    <!-- Animated grid background -->
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-label">[ CYBERSECURITY AWARENESS ]</p>
+      <h1 class="hero-title">Know the Threats.<br/><span class="accent">Own Your Safety.</span></h1>
+      <p class="hero-sub">
+        Learn how hackers think, how digital crime works, and most
+        importantly — how to protect yourself online.
+      </p>
+      <div class="hero-cards">
+        <div class="info-card" onclick="showSection('checker')">
+          <div class="card-icon">🔐</div>
+          <h3>Password Checker</h3>
+          <p>Test how strong your password really is.</p>
+          <span class="card-cta">Try it →</span>
+        </div>
+        <div class="info-card" onclick="showSection('login')">
+          <div class="card-icon">🛡️</div>
+          <h3>Secure Login</h3>
+          <p>See a demo login with security tips.</p>
+          <span class="card-cta">Try it →</span>
+        </div>
+        <div class="info-card" onclick="showSection('quiz')">
+          <div class="card-icon">🎯</div>
+          <h3>Cyber Quiz</h3>
+          <p>Test your cybersecurity knowledge.</p>
+          <span class="card-cta">Start →</span>
+        </div>
+      </div>
+
+      <!-- Threat glossary strip -->
+      <div class="glossary">
+        <h2 class="section-heading">Common Cyber Threats</h2>
+        <div class="glossary-grid">
+          <div class="glossary-item">
+            <span class="g-icon">🎣</span>
+            <strong>Phishing</strong>
+            <p>Fraudulent emails or websites that trick you into giving up sensitive information.</p>
+          </div>
+          <div class="glossary-item">
+            <span class="g-icon">💻</span>
+            <strong>Malware</strong>
+            <p>Malicious software designed to damage, disrupt, or gain unauthorised access to your system.</p>
+          </div>
+          <div class="glossary-item">
+            <span class="g-icon">🔓</span>
+            <strong>Brute Force</strong>
+            <p>Automated guessing of passwords until the correct one is found.</p>
+          </div>
+          <div class="glossary-item">
+            <span class="g-icon">👤</span>
+            <strong>Social Engineering</strong>
+            <p>Manipulating people psychologically to reveal confidential information.</p>
+          </div>
+          <div class="glossary-item">
+            <span class="g-icon">🕵️</span>
+            <strong>Spyware</strong>
+            <p>Software that secretly monitors your activity and sends data to third parties.</p>
+          </div>
+          <div class="glossary-item">
+            <span class="g-icon">💰</span>
+            <strong>Ransomware</strong>
+            <p>Encrypts your files and demands payment to restore access.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION: PASSWORD CHECKER ===================== -->
+  <section id="checker" class="section">
+    <div class="section-inner">
+      <p class="section-label">[ TOOL 01 ]</p>
+      <h2 class="section-heading">Password Strength Checker</h2>
+      <p class="section-desc">Enter any password below to see how secure it is and get tips to improve it.</p>
+
+      <div class="checker-card">
+        <div class="input-group">
+          <label for="passwordInput">Enter your password</label>
+          <div class="pw-wrap">
+            <!-- Password input field -->
+            <input type="password" id="passwordInput" placeholder="Type a password…" autocomplete="off" />
+            <!-- Toggle visibility button -->
+            <button class="toggle-eye" id="toggleEye" aria-label="Show/hide password">👁</button>
+          </div>
+        </div>
+
+        <!-- Strength meter bar -->
+        <div class="strength-meter">
+          <div class="meter-bar">
+            <div class="meter-fill" id="meterFill"></div>
+          </div>
+          <span class="strength-label" id="strengthLabel">—</span>
+        </div>
+
+        <!-- Checklist of password rules -->
+        <ul class="pw-checklist" id="pwChecklist">
+          <li id="chkLen"   class="check-item">✗ At least 8 characters</li>
+          <li id="chkUpper" class="check-item">✗ Contains uppercase letter (A–Z)</li>
+          <li id="chkLower" class="check-item">✗ Contains lowercase letter (a–z)</li>
+          <li id="chkNum"   class="check-item">✗ Contains a number (0–9)</li>
+          <li id="chkSpec"  class="check-item">✗ Contains special character (!@#$…)</li>
+        </ul>
+
+        <!-- Dynamic advice message -->
+        <div class="pw-advice" id="pwAdvice">Start typing to see your password strength.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION: LOGIN ===================== -->
+  <section id="login" class="section">
+    <div class="section-inner">
+
+      <!-- LOGIN FORM VIEW -->
+      <div id="loginView">
+        <p class="section-label">[ TOOL 02 ]</p>
+        <h2 class="section-heading">Secure Login Demo</h2>
+        <p class="section-desc">
+          Use the credentials below to log in. This is a frontend-only demo — no server needed.<br/>
+          <code>Username: admin &nbsp;|&nbsp; Password: Secure@123</code>
+        </p>
+
+        <div class="login-card">
+          <!-- Username field -->
+          <div class="input-group">
+            <label for="loginUser">Username</label>
+            <input type="text" id="loginUser" placeholder="Enter username" autocomplete="off"/>
+          </div>
+          <!-- Password field -->
+          <div class="input-group">
+            <label for="loginPass">Password</label>
+            <input type="password" id="loginPass" placeholder="Enter password"/>
+          </div>
+          <!-- Error message (hidden by default) -->
+          <div class="login-error" id="loginError">⚠ Invalid username or password. Please try again.</div>
+          <!-- Login button -->
+          <button class="btn-primary" id="loginBtn" onclick="doLogin()">Login →</button>
+        </div>
+      </div>
+
+      <!-- DASHBOARD VIEW (shown after successful login) -->
+      <div id="dashboardView" class="hidden">
+        <p class="section-label">[ WELCOME BACK ]</p>
+        <h2 class="section-heading">Security Dashboard</h2>
+        <p class="section-desc">You're logged in! Here are essential cybersecurity tips to stay safe online.</p>
+
+        <div class="tips-grid">
+          <div class="tip-card">
+            <span class="tip-num">01</span>
+            <h3>Never Share Passwords</h3>
+            <p>Your password is personal. No legitimate service will ever ask for it via email or chat.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">02</span>
+            <h3>Beware of Phishing</h3>
+            <p>Check sender email addresses carefully. Phishing emails mimic real brands to steal your info.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">03</span>
+            <h3>Use Strong Passwords</h3>
+            <p>A good password has 12+ characters, mixed case, numbers, and special symbols.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">04</span>
+            <h3>Enable Two-Factor Auth</h3>
+            <p>2FA adds an extra verification step, making it much harder for attackers to access your account.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">05</span>
+            <h3>Update Software Regularly</h3>
+            <p>Security patches fix known vulnerabilities. Always keep your OS and apps up to date.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-num">06</span>
+            <h3>Use Secure Networks</h3>
+            <p>Avoid logging into sensitive accounts over public Wi-Fi. Use a VPN when necessary.</p>
+          </div>
+        </div>
+        <button class="btn-secondary" onclick="doLogout()">← Logout</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== SECTION: QUIZ ===================== -->
+  <section id="quiz" class="section">
+    <div class="section-inner">
+      <p class="section-label">[ TOOL 03 ]</p>
+      <h2 class="section-heading">Cybersecurity Quiz</h2>
+      <p class="section-desc">10 questions. Test what you know about hacking techniques and digital safety.</p>
+
+      <!-- Quiz progress bar -->
+      <div class="quiz-progress-wrap">
+        <div class="quiz-progress-bar" id="quizProgressBar"></div>
+      </div>
+      <p class="quiz-counter" id="quizCounter">Question 1 of 10</p>
+
+      <!-- Quiz question area -->
+      <div class="quiz-card" id="quizCard">
+        <p class="quiz-question" id="quizQuestion">Loading question…</p>
+        <div class="quiz-options" id="quizOptions">
+          <!-- Options injected by JS -->
+        </div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+        <button class="btn-primary" id="nextBtn" onclick="nextQuestion()" style="display:none">Next →</button>
+      </div>
+
+      <!-- Quiz result area (hidden until end) -->
+      <div class="quiz-result hidden" id="quizResult">
+        <div class="result-score" id="resultScore"></div>
+        <p class="result-msg" id="resultMsg"></p>
+        <button class="btn-primary" onclick="restartQuiz()">Restart Quiz</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <p>⬡ CyberShield &nbsp;·&nbsp; Built for educational purposes &nbsp;·&nbsp; Stay safe online.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
